@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Fitted Hat",
+        "amount": 1999,
+        "color": "Blue",
+        "inStock": true,
+        "description": "NY Yankees classic fitted hat",
+        "rating": 5,
+        "category": "Fitted"
+    },
+    {
+        "name": "Snapback Hat",
+        "amount": 5000,
+        "color": "Navy Blue",
+        "inStock": false,
+        "description": "Limited edition NY Mets snapback hat",
+        "rating": 5,
+        "category": "Snapback"
+    },
+    {
+        "name": "5-Panel Hat",
+        "amount": 2500,
+        "color": "White/Black",
+        "inStock": true,
+        "description": "Limited edition NY Mets snapback hat",
+        "rating": 3.5,
+        "category": "5-PANEL"
+    }
+]
