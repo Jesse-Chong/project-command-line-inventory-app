@@ -1,8 +1,8 @@
 [
   {
-    "id": "qglI0tEioQQEM9Di3PJlX",
+    "id": "TEXwtMoYZRAQLxH-3UzK0",
+    "price": "35.00",
     "name": "Fitted Hat",
-    "amount": 1999,
     "color": "Blue",
     "inStock": true,
     "description": "NY Yankees classic fitted hat",
@@ -10,9 +10,9 @@
     "category": "Fitted"
   },
   {
-    "id": "XxVB9WdigCa282mT9bble",
+    "id": "MRXpOmI21QF2lrwDzkBka",
+    "price": "75.00",
     "name": "Snapback Hat",
-    "amount": 50,
     "color": "Navy Blue",
     "inStock": false,
     "description": "Limited edition NY Mets snapback hat",
@@ -20,9 +20,9 @@
     "category": "Snapback"
   },
   {
-    "id": "y3i1W13MfmoS-5Z8FqrW4",
+    "id": "quKJSzjgpgIAj9ljGYU7x",
+    "price": "40.00",
     "name": "5-Panel Hat",
-    "amount": 25,
     "color": "White/Black",
     "inStock": true,
     "description": "Limited edition NY Mets snapback hat",
@@ -30,38 +30,23 @@
     "category": "5-PANEL"
   },
   {
-    "id": "pKcqYZ7O5G2Ki1GYR_dle",
-    "name": "\"Supreme Hat\"",
-    "price": "50.00"
+    "id": "R_hVp_HTxYhwmHA21mi1Q",
+    "price": "100.00",
+    "name": "Supreme x NY Yankees Snapback",
+    "color": "NavyBlue, Red, White",
+    "inStock": false,
+    "description": "Limited edition Supreme and NY Yankees collaboration",
+    "rating": 4.5,
+    "category": "Snapback"
   },
   {
-    "id": "mfFNTwjff-fuA9zPit4w_",
-    "name": "Hat Hat",
-    "price": "15.00"
-  },
-  {
-    "id": "gZ_TdYZpkmDSjdftDnFT3",
-    "name": "hat hat hat hat hat hat",
-    "price": "20.00"
-  },
-  {
-    "id": "Jo6vfhgpaRZo55VTqNuBT",
-    "name": "hat",
-    "price": "1.00"
-  },
-  {
-    "id": "9l744Kt05VHoHWTdqaSD4",
-    "name": "Supreme Hat",
-    "price": "1050.00"
-  },
-  {
-    "id": "UesYIsB5vQQH1qsdT_dLB",
-    "name": "2",
-    "price": "2.00"
-  },
-  {
-    "id": "T-tizh-z8p7Ua7neHGOOs",
-    "name": "hat hat",
-    "price": "20.00"
+    "id": "HGuUO11BqzneZFK7Ama9X",
+    "price": "150.00",
+    "name": "Bape Cap",
+    "color": "Camo",
+    "inStock": true,
+    "description": "Limited edition Bape snapback",
+    "rating": 4.5,
+    "category": "Snapback"
   }
 ]

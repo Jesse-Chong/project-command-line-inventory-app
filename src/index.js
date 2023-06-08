@@ -48,14 +48,29 @@ function promptNewItem() {
     console.log('==== Create a New Item ===='); // Header message
     r1.question('Enter the name of the item: ', (name) => { // r1.question() method is used to prompt the user for input. The prompt is the first parameter and  and a callback function as the second parameter. After a user inputs a name it names the name variable
         r1.question('Enter the price of the item: ', (price) => { // Similiar to the previous it is used to prompt the user to enter the price of item. 
+            r1.question('Enter the color of the item: ', (color) => {
+            r1.question('Enter the availability of the item: ', (inStock) => {
+            r1.question('Enter the description of the item: ', (description) => {
+            r1.question('Enter the rating of the item: ', (rating) => {
+            r1.question('Enter the category of the item: ', (category) => {
+    
             const item = { // create a new object named item is created using object literal notation. It contains name and price with whatever the user input.
                 name,
-                price: parseFloat(price).toFixed(2) // parse a string representation of a number to a numeric value
-                
+                price: parseFloat(price).toFixed(2), // parse a string representation of a number to a numeric value
+                color,
+                inStock: inStock,
+                description,
+                rating: parseFloat(rating),
+                category
             };
 
             createItem(item); // createItem function is called with item as an argument and this creates a new item in the inventory based on user input
-            promptUser(); // This restarts tje promp allowing users to continue interacting with the menu
+            promptUser(); // This restarts the prompt allowing users to continue interacting with the menu
+        })
+        })
+        })
+        })
+        })
         });
     });
 }
