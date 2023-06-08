@@ -1,17 +1,18 @@
 const { readJSONFile, writeJSONFile } = require("../data/data.js")
 const { nanoid } = require("nanoid");
-const data = readJSONFile();
+const path = "./data";
+const fileName = "data.json";
 
 function createItem(item) {
-    // const data = readJSONFile();
+    const data = readJSONFile();
     const newItem = { ...item, id: nanoid() }; // Using spread syntax to copy properties of the item object and equal newItem, this also adds the new property 'id'
     data.push(newItem);
-    writeJSONFile(data);
+    writeJSONFile(path, fileName, data);
     console.log("Item created successfully.");
 }
 // This function is responsible for listing all the items from data.json
 function listItems() {
-    // const data = readJSONFile();
+    const data = readJSONFile();
 
     if (data.length === 0) { // This checks if data array is empty
         console.log('No items found.');
