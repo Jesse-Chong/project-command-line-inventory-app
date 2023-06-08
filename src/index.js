@@ -51,6 +51,7 @@ function promptNewItem() {
             const item = { // create a new object named item is created using object literal notation. It contains name and price with whatever the user input.
                 name,
                 price: parseFloat(price).toFixed(2) // parse a string representation of a number to a numeric value
+                
             };
 
             createItem(item); // createItem function is called with item as an argument and this creates a new item in the inventory based on user input

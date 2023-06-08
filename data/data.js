@@ -15,14 +15,29 @@ try { // use try and catch block to handle any errors that may occur during file
   }
 }
 
+// function writeJSONFile(path, fileName, data) {
+//     try{
+//     data = data.map((item) => ({ ...item, id: nanoid() })); // Use map to iterate over each item in the data array and create a new object with ealready existing properties of each item using the spread syntax. It also assigns a new id property to each item using nanoid to give each item a unique identifier
+//     data = JSON.stringify(data, null, 2);
+//     writeFileSync(`${path}/${fileName}`, data, { encoding: "utf-8" }); // first argument is file path, second argument is the data that is to be written, the third argument is encoding for this file using UTF-8.
+// } catch (error) { // if any errors are caught , log an error message using console.error
+//     console.error(`Error reading ${fileName}:`, error);
+//   }
+// }
+
+// This new function puts id on top when formatting the data
 function writeJSONFile(path, fileName, data) {
-    try{
-    data = data.map((item) => ({ ...item, id: nanoid() })); // Use map to iterate over each item in the data array and create a new object with ealready existing properties of each item using the spread syntax. It also assigns a new id property to each item using nanoid to give each item a unique identifier
-    data = JSON.stringify(data, null, 2);
-    writeFileSync(`${path}/${fileName}`, data, { encoding: "utf-8" }); // first argument is file path, second argument is the data that is to be written, the third argument is encoding for this file using UTF-8.
-} catch (error) { // if any errors are caught , log an error message using console.error
-    console.error(`Error reading ${fileName}:`, error);
-  }
+        try{
+        data = data.map((item) => ({ ...item, id: nanoid() })); // Use map to iterate over each item in the data array and create a new object with ealready existing properties of each item using the spread syntax. It also assigns a new id property to each item using nanoid to give each item a unique identifier
+        const formattedData = data.map((item) => { 
+    const { id, ...rest } = item; // Destructure the id property and store the rest in the rest object
+    return { id, ...rest }; // Combine the id property with the rest of the properties with id on top
+    });
+    const jsonContent =  JSON.stringify(formattedData, null, 2);
+    writeFileSync(`${path}/${fileName}`, jsonContent, { encoding: "utf-8" });
+    } catch (error) { // if any errors are caught, log an error message using console.error
+        console.error(`Error reading ${fileName}:`, error);
+    }
 }
 
 module.exports = {
