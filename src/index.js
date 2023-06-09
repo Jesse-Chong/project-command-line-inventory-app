@@ -1,5 +1,10 @@
 const readline = require("readline"); // readline is commonly used to create command-line interfaces
-const { listItems, createItem, updateItem } = require("./purchasecontroller");
+const {
+  listItems,
+  createItem,
+  updateItem,
+  removeItem,
+} = require("./purchasecontroller");
 
 // This code sets up a command-line interface to display a menu for a hat store inventory and users can interact with it
 const r1 = readline.createInterface({
@@ -15,6 +20,7 @@ function displayMenu() {
   console.log("2. Create a new item");
   console.log("3. Exit");
   console.log("4. Update an item");
+  console.log("5. Remove an item");
 }
 
 // This function takes user input as a parameter and performs different actions based on input.
@@ -22,6 +28,7 @@ function handleUserInput(input) {
   switch (input) {
     case "1": // If the input is 1, it calls the listItems() function
       listItems();
+      showOptions();
       break;
     case "2": // If the input is 2, it calls promptNewItem function
       promptNewItem();
@@ -29,13 +36,18 @@ function handleUserInput(input) {
     case "3": // If the input is 3, it calls r1.close() to close the interface and exit the program
       r1.close(); // Exit  the interface
       break;
-    case "4": // IF the input is 4, it calls
+    case "4": // If the input is 4, it calls promptUpdateItem function
       r1.question("Enter the ID of the item you want to update: ", (itemId) => {
-        promptUpdateItem(itemId);
-      });
+        promptUpdateItem(itemId); // r1.question takes a string prompt as first argument and a callback function as second argument which is userinput or (itemId)
+      }); // Inside the callback function promptUpdateItem is executed with itemId parameter giving access to itemId value to update the corresponding item
+      break;
+    case "5": // If the input is 5, it
+      promptRemoveItem();
       break;
     default: // If the input doesnt match a case than default to error
       console.log("Invalid input. Please try again.");
+      showOptions();
+      break;
   }
 }
 
@@ -53,6 +65,15 @@ function promptUser() {
     }
   });
 }
+
+// This function was made to show the display menu whenever the the user goes back to the main menu
+function showOptions() {
+  displayMenu();
+  r1.question("Enter your choice ", (choice) => {
+    handleUserInput(choice);
+  });
+}
+
 // This function prompts the user to enter the details of a new item
 function promptNewItem() {
   console.log("==== Create a New Item ===="); // Header message
@@ -77,7 +98,8 @@ function promptNewItem() {
                 };
 
                 createItem(item); // createItem function is called with item as an argument and this creates a new item in the inventory based on user input
-                promptUser(); // This restarts the prompt allowing users to continue interacting with the menu
+                showOptions();
+                // promptUser(); // This restarts the prompt allowing users to continue interacting with the menu
               });
             });
           });
@@ -109,7 +131,8 @@ function promptUpdateItem(itemId) {
                           (category) => {
                             const updatedItem = {};
 
-                            if (name.trim() !== "") { // Use trim to remove whitespace from both ends of the string
+                            if (name.trim() !== "") {
+                              // Use trim to remove whitespace from both ends of the string
                               updatedItem.name = name; // Checks if the trimmed name value is not an empty string.
                             } // If not empty it means the user provided a name for the item and the user updated name gets assiged to name
                             // If the user skips inputting a name, the name property will not be added to name
@@ -120,7 +143,8 @@ function promptUpdateItem(itemId) {
                               updatedItem.color = color;
                             }
                             if (inStock.trim() !== "") {
-                              updatedItem.inStock = inStock.toLowerCase() === "true"; // Use toLowerCase for user flexibility and boolean value
+                              updatedItem.inStock =
+                                inStock.trim().toLowerCase() === "true"; // Use trim and toLowerCase for user flexibility and variations, i.e (true, True, TRUE, TrUe)
                             }
                             if (description.trim() !== "") {
                               updatedItem.description = description;
@@ -133,7 +157,8 @@ function promptUpdateItem(itemId) {
                             }
 
                             updateItem(itemId, updatedItem);
-                            promptUser();
+                            showOptions();
+                            // promptUser();
                           }
                         );
                       }
@@ -146,6 +171,14 @@ function promptUpdateItem(itemId) {
         );
       }
     );
+  });
+}
+
+function promptRemoveItem(itemId) {
+  console.log("==== Remove Item ====");
+  r1.question("Enter the item ID you want to remove: ", (inputeItemId) => {
+    removeItem(inputeItemId); // call removeItem and inputeItemId is user input
+    showOptions();
   });
 }
 

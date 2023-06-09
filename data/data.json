@@ -1,6 +1,6 @@
 [
   {
-    "id": "ap0ysnw27fa1Aa_eTrOg5",
+    "id": "pcj9jojG3w1KhmwHJstmv",
     "price": "35.00",
     "name": "Fitted Hat",
     "color": "Blue",
@@ -10,7 +10,7 @@
     "category": "Fitted"
   },
   {
-    "id": "FsNWD1_nKdPJm--zQ0z38",
+    "id": "pr9sLfiewKiQ5_Bkk3viY",
     "price": "75.00",
     "name": "Snapback Hat",
     "color": "Navy Blue",
@@ -20,7 +20,7 @@
     "category": "Snapback"
   },
   {
-    "id": "rRAugm-p2gkK8nZHJxsBU",
+    "id": "2DNdmcq_f2UEeZgIHbRU9",
     "price": "40.00",
     "name": "5-Panel Hat",
     "color": "White/Black",
@@ -30,7 +30,7 @@
     "category": "5-PANEL"
   },
   {
-    "id": "-8CrDHoJjzBP_lssHpDid",
+    "id": "eM7a02hwCZqnbl6M1jvs1",
     "price": "150.00",
     "name": "Supreme NY Yankees Snapback",
     "color": "Red, White, Navy Blue",
@@ -40,7 +40,7 @@
     "category": "Snapback"
   },
   {
-    "id": "N7DOvg9JVj4aYovlj9Wfa",
+    "id": "HlIba8qdHQjYmr6Oww_gG",
     "price": "150.00",
     "name": "Bape Cap",
     "color": "Camo",
@@ -48,5 +48,15 @@
     "description": "Limited edition Bape snapback",
     "rating": 4.5,
     "category": "Snapback"
+  },
+  {
+    "id": "fis1zZ8qqqo6dRhpGr6XR",
+    "price": "45.00",
+    "name": "Ralph Polo Lauren Beanie",
+    "color": "Black",
+    "inStock": false,
+    "description": "Ralph Polo Lauren beanie with red stitching",
+    "rating": 4.5,
+    "category": "Beanie"
   }
 ]
