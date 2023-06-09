@@ -44,8 +44,26 @@ function listItems() {
     };
 }
 
+// Finds the item in the data array bassed on itemId provided, and updates its properties using new values from updateItem
+function updateItem(itemId, updatedItem) {
+    const data = readJSONFile();
+    const itemIndex = data.findIndex((item) => item.id === itemId); // find the index of item.id to match itemId
+
+    if (itemIndex !== -1) { // If itemInde (matching ids) is not equal to -1 it means that an array was found
+        data[itemIndex] = { // A new object is created using existing item objects at data[itemIndex] and the updatedItem object
+            ...data[itemIndex], // The spread syntax is used to copy the properties of existing item object into the new object. This makes sure that new object has all properties of the existing item (data)
+            ...updatedItem, // The spread syntax is used again to copy properties of the updateItem object into the new object. This allows any properties in updatedItem to overwrite the original properties in the new object
+        }; // If there are the same properties in data[itemIndex] object, and updatedItem object, then the value of updateItem will be used.
+        // By essentially combining the properties of existing item and the updated item, a new object is created that respresents the updated item with changes applied and then it assigns the updateobject back to the data array at the same index.
+        writeJSONFile(data);
+        console.log("Item updated successfully.");
+    } else {
+        console.log("Item not found.")
+    }
+}
 
 module.exports = {
     createItem,
     listItems,
+    updateItem,
 }

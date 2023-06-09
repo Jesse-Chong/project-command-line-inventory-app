@@ -1,6 +1,6 @@
 [
   {
-    "id": "TEXwtMoYZRAQLxH-3UzK0",
+    "id": "ap0ysnw27fa1Aa_eTrOg5",
     "price": "35.00",
     "name": "Fitted Hat",
     "color": "Blue",
@@ -10,7 +10,7 @@
     "category": "Fitted"
   },
   {
-    "id": "MRXpOmI21QF2lrwDzkBka",
+    "id": "FsNWD1_nKdPJm--zQ0z38",
     "price": "75.00",
     "name": "Snapback Hat",
     "color": "Navy Blue",
@@ -20,27 +20,27 @@
     "category": "Snapback"
   },
   {
-    "id": "quKJSzjgpgIAj9ljGYU7x",
+    "id": "rRAugm-p2gkK8nZHJxsBU",
     "price": "40.00",
     "name": "5-Panel Hat",
     "color": "White/Black",
-    "inStock": true,
+    "inStock": false,
     "description": "Limited edition NY Mets snapback hat",
     "rating": 3.5,
     "category": "5-PANEL"
   },
   {
-    "id": "R_hVp_HTxYhwmHA21mi1Q",
-    "price": "100.00",
-    "name": "Supreme x NY Yankees Snapback",
-    "color": "NavyBlue, Red, White",
-    "inStock": false,
-    "description": "Limited edition Supreme and NY Yankees collaboration",
+    "id": "-8CrDHoJjzBP_lssHpDid",
+    "price": "150.00",
+    "name": "Supreme NY Yankees Snapback",
+    "color": "Red, White, Navy Blue",
+    "inStock": true,
+    "description": "Limited edition Supreme and NY Yankee collab",
     "rating": 4.5,
     "category": "Snapback"
   },
   {
-    "id": "HGuUO11BqzneZFK7Ama9X",
+    "id": "N7DOvg9JVj4aYovlj9Wfa",
     "price": "150.00",
     "name": "Bape Cap",
     "color": "Camo",
