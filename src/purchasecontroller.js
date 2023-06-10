@@ -51,7 +51,7 @@ function listItems() {
   }
 }
 
-// Finds the item in the data array bassed on itemId provided, and updates its properties using new values from updateItem
+// Finds the item in the data array based on itemId provided, and updates its properties using new values from updateItem
 function updateItem(itemId, updatedItem) {
   const data = readJSONFile();
   const itemIndex = data.findIndex((item) => item.id === itemId); // find the index of item.id to match itemId
@@ -71,6 +71,7 @@ function updateItem(itemId, updatedItem) {
   }
 }
 
+// Finds the item in the data array based on itemId provided, and removes that particular object in the data.json array
 function removeItem(itemId) {
     const data = readJSONFile();
     const dataIndex = data.findIndex((item) => item.id === itemId);
@@ -84,9 +85,31 @@ function removeItem(itemId) {
     }
 }
 
+// Find the exact item id in readJSONFile and give the details of the item
+function viewItem(itemId) {
+    const data = readJSONFile();
+    const item = data.find((item) => item.id === itemId);
+
+    if (item) {
+        console.log("==== Item Details ====")
+        console.log(` Name: ${item.name}`);
+        console.log(` Price: $${item.price}`);
+        console.log(` Color: ${item.color}`);
+        console.log(` Stock: ${item.inStock ? "In stock" : "Out of stock"}`);
+        console.log(` Description: ${item.description}`);
+        console.log(` Rating: ${item.rating}`);
+        console.log(` Category: ${item.category}`);
+        console.log("---------------------------");
+    } else {
+        console.log("Item not found.")
+    }
+    
+}
+
 module.exports = {
   createItem,
   listItems,
   updateItem,
-  removeItem
+  removeItem,
+  viewItem
 };

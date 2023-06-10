@@ -18,7 +18,6 @@ function readJSONFile() {
 function writeJSONFile(data) {
   try {
     const formattedData = data.map((item) => {
-      // formattedData = an array created by map, for each item in data array,
       const { id, price, ...rest } = item; // destructure the id property and store the rest in the rest object and
       return { id, price, ...rest }; // combine the id property with the rest of the properties with id on top
     });

@@ -1,10 +1,5 @@
 const readline = require("readline"); // readline is commonly used to create command-line interfaces
-const {
-  listItems,
-  createItem,
-  updateItem,
-  removeItem,
-} = require("./purchasecontroller");
+const { listItems, createItem, updateItem, removeItem, viewItem } = require("./purchasecontroller");
 
 // This code sets up a command-line interface to display a menu for a hat store inventory and users can interact with it
 const r1 = readline.createInterface({
@@ -21,6 +16,7 @@ function displayMenu() {
   console.log("3. Exit");
   console.log("4. Update an item");
   console.log("5. Remove an item");
+  console.log("6. See the details an item");
 }
 
 // This function takes user input as a parameter and performs different actions based on input.
@@ -41,9 +37,15 @@ function handleUserInput(input) {
         promptUpdateItem(itemId); // r1.question takes a string prompt as first argument and a callback function as second argument which is userinput or (itemId)
       }); // Inside the callback function promptUpdateItem is executed with itemId parameter giving access to itemId value to update the corresponding item
       break;
-    case "5": // If the input is 5, it
+    case "5": // If the input is 5, it calls promptRemoveItem function
       promptRemoveItem();
       break;
+    case "6": 
+        r1.question("Enter the item ID you want to see: ", (itemId) => {
+            viewItem(itemId);
+            showOptions()
+        })
+        break;
     default: // If the input doesnt match a case than default to error
       console.log("Invalid input. Please try again.");
       showOptions();
@@ -69,7 +71,7 @@ function promptUser() {
 // This function was made to show the display menu whenever the the user goes back to the main menu
 function showOptions() {
   displayMenu();
-  r1.question("Enter your choice ", (choice) => {
+  r1.question("Enter your choice: ", (choice) => {
     handleUserInput(choice);
   });
 }
@@ -181,6 +183,7 @@ function promptRemoveItem(itemId) {
     showOptions();
   });
 }
+
 
 displayMenu();
 promptUser();
