@@ -102,9 +102,9 @@ function viewItem(itemId) {
         console.log("---------------------------");
     } else {
         console.log("Item not found.")
-    }
-    
+    }   
 }
+
 
 module.exports = {
   createItem,

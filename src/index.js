@@ -1,5 +1,7 @@
 const readline = require("readline"); // readline is commonly used to create command-line interfaces
 const { listItems, createItem, updateItem, removeItem, viewItem } = require("./purchasecontroller");
+const { getItemById } = require("./helper.js");
+const { writeCartData, readCartData } = require("../data/cartdata");
 
 // This code sets up a command-line interface to display a menu for a hat store inventory and users can interact with it
 const r1 = readline.createInterface({
@@ -16,7 +18,11 @@ function displayMenu() {
   console.log("3. Exit");
   console.log("4. Update an item");
   console.log("5. Remove an item");
-  console.log("6. See the details an item");
+  console.log("6. See the details of an item");
+  console.log("7. Add to cart");
+  console.log("8. View cart");
+  console.log("9. Remove item in cart");
+  console.log("10. remove all items in cart");
 }
 
 // This function takes user input as a parameter and performs different actions based on input.
@@ -45,6 +51,12 @@ function handleUserInput(input) {
             viewItem(itemId);
             showOptions()
         })
+        break;
+    case "7": // If the input is 2, it calls promptNewItem function
+        addToCart();
+        break;
+    case "8": // If the input is 2, it calls promptNewItem function
+        viewCart();
         break;
     default: // If the input doesnt match a case than default to error
       console.log("Invalid input. Please try again.");
@@ -160,7 +172,6 @@ function promptUpdateItem(itemId) {
 
                             updateItem(itemId, updatedItem);
                             showOptions();
-                            // promptUser();
                           }
                         );
                       }
@@ -176,7 +187,7 @@ function promptUpdateItem(itemId) {
   });
 }
 
-function promptRemoveItem(itemId) {
+function promptRemoveItem() {
   console.log("==== Remove Item ====");
   r1.question("Enter the item ID you want to remove: ", (inputeItemId) => {
     removeItem(inputeItemId); // call removeItem and inputeItemId is user input
@@ -184,6 +195,46 @@ function promptRemoveItem(itemId) {
   });
 }
 
+let cart = [] // Declare cart as a global variable so it can be modified from any function within the same scope
+function addToCart () {
+    console.log("==== Add to cart ====");
+    r1.question("Enter the ID of the item you want to add to the cart: ", (itemId) => {
+        const item = getItemById(itemId);
+        if (item) {
+            cart.push(item); // When an item is added to cart, the item which is itemId gets pushed into the cart.
+            console.log("Item added to the cart.");
+        } else {
+            console.log("Item not found.");
+
+        }
+        writeCartData(cart);
+        showOptions();
+    });
+}
+
+// This function is responsible for listing all the items from data.json
+function viewCart() {
+    if (cart.length === 0) {
+      // This checks if data array is empty
+      console.log("Cart is empty.");
+    } else {
+      // If data array is not empt"y than the code moves on
+      console.log("---------------------------")
+      console.log("Items in your cart:"); // Heading
+      cart.forEach((item) => {
+        // This is a loop that iterates over data array that also passes a  callback function for each element in the array
+        console.log(` Name: ${item.name}`);
+        console.log(` Price: $${item.price}`);
+        console.log(` Color: ${item.color}`);
+        console.log(` Stock: ${item.inStock ? "In stock" : "Out of stock"}`);
+        console.log(` Description: ${item.description}`);
+        console.log(` Rating: ${item.rating}`);
+        console.log(` Category: ${item.category}`);
+        console.log("---------------------------");
+      });
+    }
+    showOptions()
+  }
 
 displayMenu();
 promptUser();
