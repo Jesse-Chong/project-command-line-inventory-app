@@ -17,7 +17,7 @@ function writeCartData(data) {
         const jsonContent = JSON.stringify(data, null, 2);
         writeFileSync(`${path}/${cartFileName}`,jsonContent , { encoding: "utf-8" });
     } catch (error) {
-        console.error(`Error writing ${cartFileName}:`, error)
+        console.error(`Error writing ${cartFileName}:`, error);
     }
 }
 

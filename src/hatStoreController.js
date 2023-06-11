@@ -37,6 +37,7 @@ function listItems() {
   } else {
     // If data array is not empty than the code moves on
     console.log("List of items:"); // Heading
+    console.log("---------------------------")
     data.forEach((item) => {
       // This is a loop that iterates over data array that also passes a  callback function for each element in the array
       console.log(` Name: ${item.name}`);
@@ -77,11 +78,11 @@ function removeItem(itemId) {
     const dataIndex = data.findIndex((item) => item.id === itemId);
 
     if (dataIndex === -1) {
-        console.log("Item not found")
+        console.log("Item not found");
     } else {
         data.splice(dataIndex, 1); // removes an element from data array at a specific location (dataIndex) first argument is starting index, second argument is remove how many elements.
         writeJSONFile(data);
-        console.log("Item removed successfully")
+        console.log("Item removed successfully");
     }
 }
 
@@ -91,7 +92,7 @@ function viewItem(itemId) {
     const item = data.find((item) => item.id === itemId);
 
     if (item) {
-        console.log("==== Item Details ====")
+        console.log("==== Item Details ====");
         console.log(` Name: ${item.name}`);
         console.log(` Price: $${item.price}`);
         console.log(` Color: ${item.color}`);
@@ -101,7 +102,7 @@ function viewItem(itemId) {
         console.log(` Category: ${item.category}`);
         console.log("---------------------------");
     } else {
-        console.log("Item not found.")
+        console.log("Item not found.");
     }   
 }
 

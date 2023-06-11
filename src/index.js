@@ -1,6 +1,6 @@
 const readline = require("readline"); // readline is commonly used to create command-line interfaces
-const { listItems, createItem, updateItem, removeItem, viewItem } = require("./purchasecontroller");
-const { getItemById } = require("./helper.js");
+const { listItems, createItem, updateItem, removeItem, viewItem } = require("./hatStoreController");
+const { getItemById } = require("./cartHelper.js");
 const { writeCartData, readCartData } = require("../data/cartdata");
 
 // This code sets up a command-line interface to display a menu for a hat store inventory and users can interact with it
@@ -30,7 +30,6 @@ function handleUserInput(input) {
   switch (input) {
     case "1": // If the input is 1, it calls the listItems() function
       listItems();
-      showOptions();
       break;
     case "2": // If the input is 2, it calls promptNewItem function
       promptNewItem();
@@ -46,17 +45,22 @@ function handleUserInput(input) {
     case "5": // If the input is 5, it calls promptRemoveItem function
       promptRemoveItem();
       break;
-    case "6": 
+    case "6": // If the input is 6, it calls viewItem with user input of itemId
         r1.question("Enter the item ID you want to see: ", (itemId) => {
             viewItem(itemId);
-            showOptions()
         })
         break;
-    case "7": // If the input is 2, it calls promptNewItem function
+    case "7": // If the input is 7, it calls addToCart function
         addToCart();
         break;
-    case "8": // If the input is 2, it calls promptNewItem function
+    case "8": // If the input is 8, it calls viewCart function
         viewCart();
+        break;
+    case "9": // If the input is 9, it calls removeItemInCart function
+        removeItemInCart();
+        break;
+    case "10":  // if the input is 10, it calls removeAllItemsInCart
+        removeAllItemsInCart();
         break;
     default: // If the input doesnt match a case than default to error
       console.log("Invalid input. Please try again.");
@@ -196,6 +200,7 @@ function promptRemoveItem() {
 }
 
 let cart = [] // Declare cart as a global variable so it can be modified from any function within the same scope
+// This function adds an item to the cart
 function addToCart () {
     console.log("==== Add to cart ====");
     r1.question("Enter the ID of the item you want to add to the cart: ", (itemId) => {
@@ -212,14 +217,13 @@ function addToCart () {
     });
 }
 
-// This function is responsible for listing all the items from data.json
+// This function is responsible for listing all the items from cart
 function viewCart() {
     if (cart.length === 0) {
       // This checks if data array is empty
       console.log("Cart is empty.");
     } else {
-      // If data array is not empt"y than the code moves on
-      console.log("---------------------------")
+      // If data array is not empty than the code moves on
       console.log("Items in your cart:"); // Heading
       cart.forEach((item) => {
         // This is a loop that iterates over data array that also passes a  callback function for each element in the array
@@ -235,6 +239,50 @@ function viewCart() {
     }
     showOptions()
   }
+
+// This function removes one item from cart
+function removeItemInCart() {
+    console.log("==== Remove Items in cart ====");
+    r1.question("Enter the ID of the item you want to remove from the cart: ", (itemId) => {
+        const cartIndex = cart.findIndex((item) => item.id === itemId);
+    if (cartIndex !== -1) {
+        const removedItem = cart.splice(cartIndex, 1)[0]; // Splice cart starting from cartIndex (item ids that match) and removes 1 element along with retrieving the removed item into an array using [0]
+        console.log("Item removed from the cart successfully");
+        console.log(removedItem); // console log removedItem to show user what item they removed
+    } else {
+       console.log("Item not found in the cart.");
+    }
+    showOptions();
+    });
+}
+
+function removeAllItemsInCart() {
+    console.log("==== Remove all Items in Cart ====");
+
+    if (cart.length === 0) {
+        console.log("Cart is already empty.");
+        showOptions();
+        return;
+    }
+
+    const removedItems = cart.splice(0); // Copy all items from the car to a new array
+    console.log("Removed items from the cart:");
+    console.log("---------------------------");
+    removedItems.forEach((item) => {
+        console.log("Items in your cart.");
+        console.log("Name: " + item.name);
+        console.log("Price: $" + item.price);
+        console.log("Color: " + item.color);
+        console.log("Stock: " + item.inStock ? "In stock" : "Out of stock");
+        console.log("Description: " + item.description);
+        console.log("Rating: " + item.rating);
+        console.log("Category: " + item.category);
+        console.log("---------------------------");
+    })
+
+    console.log("All items have been removed from the cart.");
+    showOptions();
+}
 
 displayMenu();
 promptUser();

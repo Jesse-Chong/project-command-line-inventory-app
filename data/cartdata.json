@@ -1,12 +1,32 @@
 [
   {
-    "id": "fis1zZ8qqqo6dRhpGr6XR",
-    "price": "45.00",
-    "name": "Ralph Polo Lauren Beanie",
-    "color": "Black",
+    "id": "2DNdmcq_f2UEeZgIHbRU9",
+    "price": "40.00",
+    "name": "5-Panel Hat",
+    "color": "White/Black",
     "inStock": false,
-    "description": "Ralph Polo Lauren beanie with red stitching",
+    "description": "Limited edition NY Mets snapback hat",
+    "rating": 3.5,
+    "category": "5-PANEL"
+  },
+  {
+    "id": "eM7a02hwCZqnbl6M1jvs1",
+    "price": "150.00",
+    "name": "Supreme NY Yankees Snapback",
+    "color": "Red, White, Navy Blue",
+    "inStock": true,
+    "description": "Limited edition Supreme and NY Yankee collab",
     "rating": 4.5,
-    "category": "Beanie"
+    "category": "Snapback"
+  },
+  {
+    "id": "pr9sLfiewKiQ5_Bkk3viY",
+    "price": "75.00",
+    "name": "Snapback Hat",
+    "color": "Navy Blue",
+    "inStock": false,
+    "description": "Limited edition NY Mets snapback hat",
+    "rating": 5,
+    "category": "Snapback"
   }
 ]
