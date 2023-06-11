@@ -1,4 +1,3 @@
-const { readCartData } = require("../data/cartdata.js");
 const { readJSONFile } = require("../data/data.js");
 
 // Finds the item in the data array based on itemId provided, use for cart functions
