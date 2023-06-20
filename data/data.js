@@ -1,6 +1,5 @@
 const { readFileSync, writeFileSync } = require("fs");
 
-
 const path = "./data";
 const fileName = "data.json";
 
@@ -13,7 +12,7 @@ function readJSONFile() {
     console.error(`Error reading ${fileName}:`, error);
     return [];
   }
-};
+}
 
 function writeJSONFile(data) {
   try {
@@ -28,7 +27,7 @@ function writeJSONFile(data) {
     // if any errors are caught , log an error message using console.error
     console.error(`Error writing ${fileName}:`, error);
   }
-};
+}
 
 module.exports = {
   readJSONFile,

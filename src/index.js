@@ -8,7 +8,7 @@ const {
   viewItem,
 } = require("./hatStoreController");
 const { getItemById } = require("./cartHelper.js");
-const { writeCartData, readCartData } = require("../data/cartdata");
+const { writeCartData } = require("../data/cartdata");
 
 // This code sets up a command-line interface to display a menu for a hat store inventory and users can interact with it
 const r1 = readline.createInterface({
@@ -230,6 +230,7 @@ function promptUpdateItem(itemId) {
   );
 }
 
+// Prompts the user to enter the item Id they want to remove
 function promptRemoveItem() {
   console.log(chalk.cyanBright.bold("==== Remove Item ===="));
   r1.question(
@@ -305,13 +306,14 @@ function removeItemInCart() {
   );
 }
 
+// Remove all items in the cart
 function removeAllItemsInCart() {
   console.log(chalk.redBright.bold("==== Remove all Items in Cart ===="));
 
   if (cart.length === 0) {
     console.log(chalk.redBright("Cart is already empty."));
     showOptions();
-    return;
+    return; // return helps prevent the code from continuing to execute if the cart is empty
   }
 
   const removedItems = cart.splice(0); // Copy all items from the car to a new array

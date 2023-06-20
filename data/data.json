@@ -58,5 +58,35 @@
     "description": "Ralph Polo Lauren beanie with red stitching",
     "rating": 4.5,
     "category": "Beanie"
+  },
+  {
+    "id": "s8DZ4EJVrU-u7nCOEjgdy",
+    "price": "35.00",
+    "name": "Fitted Hat",
+    "color": "Blue",
+    "inStock": false,
+    "description": "NY Yankees classic fitted hat",
+    "rating": 5,
+    "category": "Fitted"
+  },
+  {
+    "id": "aXiI4pmfbuwixNt1tLuqt",
+    "price": "35.00",
+    "name": "Fitted Hat",
+    "color": "Blue",
+    "inStock": false,
+    "description": "NY Yankees classic fitted hat",
+    "rating": 5,
+    "category": "Fitted"
+  },
+  {
+    "id": "5QWgiKPgpJQBLIlrQ7IIt",
+    "price": "35.00",
+    "name": "Fitted Hat",
+    "color": "Blue",
+    "inStock": false,
+    "description": "NY Yankees classic fitted hat",
+    "rating": 5,
+    "category": "Fitted"
   }
 ]
